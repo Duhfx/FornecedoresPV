@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+<div class="topnav">
+    <a id="hConsulta" asp-controller="consulta" asp-action="consultar" class="active">Consulta</a>
+    <a id="hEmpresas" asp-controller="empresa" asp-action="formempresa">Empresas</a>
+    <a id="hFornecedores" asp-controller="fornecedor" asp-action="formfornecedor">Fornecedores</a>
+</div>
+
+<body>
+    <div>
+        @if (TempData["Mensagem"] != null)
+        {
+            var message = TempData["Mensagem"];
+            <div class="alert">  @message   </div>
+        }
+
+        @RenderBody()
+    </div>
+</body>
+</html>

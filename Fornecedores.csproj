@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191121225541_Inicial.cs" />
+    <Compile Remove="Migrations\20191121225541_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191121230300_Inicial.cs" />
+    <Compile Remove="Migrations\20191121230300_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191121230438_Inicial.cs" />
+    <Compile Remove="Migrations\20191121230438_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191121230514_Inicial.cs" />
+    <Compile Remove="Migrations\20191121230514_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191121230632_Inicial.cs" />
+    <Compile Remove="Migrations\20191121230632_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191122003934_Inicial.cs" />
+    <Compile Remove="Migrations\20191122003934_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191122011056_Inicial.cs" />
+    <Compile Remove="Migrations\20191122011056_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191122231942_Inicial.cs" />
+    <Compile Remove="Migrations\20191122231942_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191123135927_Inicial.cs" />
+    <Compile Remove="Migrations\20191123135927_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191123171332_Inicial.cs" />
+    <Compile Remove="Migrations\20191123171332_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20191123185008_Inicial.cs" />
+    <Compile Remove="Migrations\20191123185008_Inicial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+  </ItemGroup>
+
+</Project>

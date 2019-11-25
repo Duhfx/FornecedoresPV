@@ -1,0 +1,65 @@
+﻿@model Fornecedores.Models.Fornecedor
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="~/lib/jquery-mask/jquery.mask.js"></script>
+    <script src="~/js/CadastroFornecedor.js"></script>
+
+</head>
+<body>
+    @using (Html.BeginForm("formfornecedor", "fornecedor", FormMethod.Post))
+    {
+    <fieldset>
+        <legend>Cadastro de Fornecedores</legend>
+
+        @Html.Label("Empresa")
+        <select asp-for="EmpresaId" asp-items="@(new SelectList(ViewBag.Empresas, "EmpresaId", "NomeFantasia"))"></select>
+
+        @Html.Label("Nome")
+        @Html.TextBoxFor(Model => Model.NomeFornecedor)
+        @Html.ValidationMessageFor(Model => Model.NomeFornecedor)
+
+        <div>
+            <input type="radio" id="p1" name="TipoPessoa" onchange="onTipoChanged()" value="1" checked />Física
+            <input type="radio" id="p2" name="TipoPessoa" onchange="onTipoChanged()" value="2" />Jurídica
+        </div>
+
+        @Html.Label("CPF/CNPJ")
+        @Html.TextBoxFor(Model => Model.CPF_CNPJ)
+        @Html.ValidationMessageFor(Model => Model.CPF_CNPJ)
+
+        <div id="pessoaFisica">
+            @Html.Label("RG")
+            @Html.TextBoxFor(Model => Model.RG)
+
+            @Html.Label("Data de Nascimento")
+            @Html.TextBoxFor(Model => Model.DataNascimento, new { type = "date" })
+
+        </div>
+        <div id="divTelefones"></div>
+
+       <div class="contatoBase" style="display: none" >
+            <fieldset >
+                <legend>Contato</legend>
+                <div class="telefone">
+                    @Html.Label("Número do telefone", "Número do Telefone", new { @Class = "labelNum" })
+                    @Html.TextBoxFor(Model => Model.Telefones[0].NumeroTelefone, new { @Class = "inputNum" })
+                    <span class="spanNum" asp-validation-for="Telefones[0].NumeroTelefone"></span>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="button" onclick="adicionarCamposTelefone()">Adicionar telefone</button>
+        <input type="submit" value="Cadastrar" />
+
+        @if (ViewBag.ViewModel != null)
+        {
+            <span>@ViewBag.ViewModel.Mensagem</span>
+        }
+
+    </fieldset>
+    }
+</body>
+</html>

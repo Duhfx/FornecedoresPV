@@ -1,0 +1,49 @@
+﻿@model List<Fornecedores.Models.Fornecedor>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="~/js/ConsultaFornecedores.js"></script>
+</head>
+<body>
+    <div class="divFiltro">
+        <input type="text" id="inputBusca" placeholder="Busca...">
+        <select class="selBusca">
+            <option value="0">Nome</option>
+            <option value="1">CPF/CNPJ</option>
+            <option value="3">Data de Cadastro</option>
+        </select>
+    </div>
+
+    <table id="tabelaFornecedores">
+        <tr>
+            <th>Nome</th>
+            <th>CPF/CNPJ</th>
+            <th>RG</th>
+            <th>Data de Cadastro</th>
+            <th>Telefones</th>
+        </tr>
+        <tbody id="bodyFornecedores">
+            @foreach (var fornecedor in Model)
+            {
+                <tr>
+                    <td>@fornecedor.NomeFornecedor</td>
+                    <td>@fornecedor.CPF_CNPJ</td>
+                    <td>@fornecedor.RG</td>
+                    <td>@fornecedor.DataInclusao.ToString(format: "d/M/yyyy")</td>
+                    @{
+                        var telefonesCadastrados = "";
+                        for (int idxTelefone = 0; idxTelefone < fornecedor.Telefones.Count; idxTelefone++)
+                        {
+                            telefonesCadastrados += idxTelefone == 0 ? $"{fornecedor.Telefones[idxTelefone].NumeroTelefone}" : $" / {fornecedor.Telefones[idxTelefone].NumeroTelefone}";
+                        }
+                    
+                        <td>@telefonesCadastrados</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

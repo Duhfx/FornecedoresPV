@@ -1,0 +1,28 @@
+﻿@model List<Fornecedores.Models.Empresa>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Empresa</th>
+            <th>CNPJ</th>
+            <th>Estado</th>
+            <th>Funcionários</th>
+        </tr>
+        @foreach (var empresa in Model)
+        {
+            <tr>
+                <td>@empresa.NomeFantasia</td>
+                <td>@empresa.CNPJ</td>
+                <td>@empresa.Estado.SiglaEstado</td>
+                <td><a asp-controller="consulta" asp-action="consultafornecedores" asp-route-id="@(empresa.EmpresaId)">Lista de Fornecedores</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

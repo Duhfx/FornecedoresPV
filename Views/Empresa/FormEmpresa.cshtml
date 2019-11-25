@@ -1,0 +1,38 @@
+﻿@model Fornecedores.Models.Empresa;
+
+@{
+    ViewData["Title"] = "Cadastro de Empresas";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="~/lib/jquery-mask/jquery.mask.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="~/js/CadastroEmpresa.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm("formempresa", "empresa", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Cadastro de Empresas</legend>
+
+            @Html.Label("Nome Fantasia")
+            @Html.TextBoxFor(Model => Model.NomeFantasia)
+            @Html.ValidationMessageFor(Model => Model.NomeFantasia)
+
+            @Html.Label("CNPJ")
+            @Html.TextBoxFor(Model => Model.CNPJ)
+            @Html.ValidationMessageFor(Model => Model.CNPJ)
+
+            @Html.Label("Estado")
+            <select asp-for="EstadoId" asp-items="@(new SelectList(ViewBag.Estados, "EstadoId", "SiglaEstado"))"> </select>
+
+            <input type="submit" value="Cadastrar" />
+        </fieldset>
+    }
+</body>
+</html>
